@@ -1,0 +1,15 @@
+{{ template "theme/partials/head.html" . }}
+<div class="row">
+ <div class="large-9 columns" role="content">
+
+  {{ range .Data.Pages }}
+	<article>
+	<h3><a href="#">{{ .Title }}</a></h3>
+	<h6>Written by <a href="#"></a> on {{ .Date.Format "Jan 2, 2006" }}</h6>
+
+	</article>
+	<hr/>  
+  {{ end }}
+</div>
+</div>
+{{ template "theme/partials/foot.html" . }}

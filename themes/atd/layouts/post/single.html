@@ -1,0 +1,26 @@
+{{ template "theme/partials/head.html" . }}
+
+<div class="row">
+ <div class="large-9 columns" role="content">
+        <article>
+  <h1>{{ .Title }}</h1>
+  <h6>Written <!--<a href="#">by {{.Params.author}}</a>--> on {{ .Date.Format "Jan 2, 2006" }}</h6>
+    {{ .Content }}
+  </div>
+  {{ if .Site.DisqusShortname }}<div id="disqus_thread"></div>{{ end }}
+</div>
+
+
+{{ with .Site.DisqusShortname }}
+<script type="text/javascript">
+    var disqus_shortname = {{ . }};
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+{{ end }}
+{{ template "theme/partials/foot.html" . }}

@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/foundation.css"/>
+    <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/atd.css"/>
+    <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/tomorrow.css"/>
+    <script src="{{ .Site.BaseUrl }}/js/vendor/modernizr.js"></script>
+    <title>{{ .Title }}</title>
+</head>
+<body>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-48874971-1', 'alltheducks.com');
+    ga('send', 'pageview');
+
+</script>
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <nav class="top-bar hide-for-small" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="/"><img src="{{ .Site.BaseUrl }}/img/alltheduck-circle.svg"
+                                         style="height: 1.5em;width: auto;"> <b>All
+                        the Ducks</b></a></h1>
+
+                </li>
+            </ul>
+
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="right">
+
+                    <li>
+                        <a href="services.html">Services</a>
+                    </li>
+                    <li>
+                        <a href="about-us.html">About Us</a>
+                    </li>
+                    <li>
+                        <a href="http://blog.alltheducks.com">Blog</a>
+                    </li>
+                    <li>
+                        <a href="contact-us.html">Contact Us</a>
+                    </li>
+                </ul>
+
+                <!-- Left Nav Section -->
+                <ul class="left">
+                </ul>
+            </section>
+        </nav>
+        <nav class="tab-bar show-for-small">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+            </section>
+
+            <section class="middle name tab-bar-section">
+                <h1><a href="/"><img src="img/alltheduck-circle.svg"
+                                     style="height: 1.5em;width: auto;"><b>All
+                    the Ducks</b></a></h1>
+            </section>
+
+        </nav>
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="services.html">Services</a>
+                </li>
+                <li>
+                    <a href="about-us.html">About Us</a>
+                </li>
+                <li>
+                    <a href="http://blog.alltheducks.com">Blog</a>
+                </li>
+                <li>
+                    <a href="contact-us.html">Contact Us</a>
+                </li>
+            </ul>
+        </aside>

@@ -1,0 +1,31 @@
+{{ template "theme/partials/head.html" . }}
+<div class="row">
+ <div class="large-9 columns" role="content">
+    {{ range .Data.Pages }}{{ if eq .Section "post" }}
+      <article>
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+
+        <h6>Written <!-- by <a href="#">{.Params.author}</a>--> on {{ .Date.Format "Jan 2, 2006" }}</h6>
+      
+        <!-- <a href="{{ .Permalink }}#disqus_thread">Comments</a>{ end }</span> -->
+        <p>{{ .Summary }}</p>
+        <a href="{{ .Permalink }}">Read On &rarr;</a>
+      </article>
+      <hr>
+    {{ end }}{{ end }}
+  </div>
+</div>
+
+
+{{ with .Site.DisqusShortname }}
+<script type="text/javascript">
+var disqus_shortname = {{ . }};
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+{{ end }}
+{{ template "theme/partials/foot.html" . }}

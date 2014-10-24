@@ -1,0 +1,30 @@
+.hp-banner {
+    height: 30em;
+    padding: 100px 20px 0 20px;
+}
+
+
+.hp-banner .floatingduck img {
+    max-width: 50%;
+    position: absolute;
+    right: 100px;
+    top: 5em;
+}
+@media only screen and (max-width: 40em) {
+    .hp-banner .floatingduck img {
+        width: 100%;
+        position: relative;
+        right: 0;
+        bottom: 0px;
+        top: 0px;
+        left: 120px; } }
+@media only screen and (min-width:40.063em) and (max-width:64em) {
+    .hp-banner .floatingduck img {
+        width: 100%;
+        position: absolute;
+        right: 0;
+        bottom: 0px; } }
+
+section.tab-bar-section.middle h1 a {
+    color: white;
+ }
