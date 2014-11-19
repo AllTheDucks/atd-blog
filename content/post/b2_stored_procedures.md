@@ -1,5 +1,5 @@
 +++
-date = "2014-11-19T15:48:00+10:00"
+date = "2014-11-19T19:50:00+10:00"
 draft = false
 title = "Lessons Learned: B2s and Stored Procedures"
 description = "Blackboard building blocks can define stored procedures (and other database objects) but there are some gotchas."
@@ -10,7 +10,7 @@ keywords = ["blackboard", "stored procedures", "mssql"]
 
 When writing a Blackboard building block, you can define your own database objects, including tables, keys and stored procedures/functions. There's far too much functionality to talk about in this blog post, but the gist of it is this:
 
-At the root of your B2, create a directory named schema and within it create a directory for each database you want to create database objects in. This is likely to be the main database (referred to as *instance*), but it may also be the stats database. As an example:
+At the root of your B2, create a directory named schema and within it create a directory for each database you want to create database objects in. This is likely to be the main database (referred to here as *instance*, but it could be anything), but it may also be the stats database. As an example:
 
 ````
 /schema/instance
@@ -26,7 +26,7 @@ Now modify your bb-manifest.xml file and add the following element:
 </schema-dirs>
 ````
 
-Obviously, if you're not using the stats db you can leave out that line. Also, if you do not define the database, it refers to the main (or *instance*) database. From here I will be focusing on a single database, but everything applies equally to both.
+Obviously, if you're not using the stats db you can leave out that line. Also, if you do not define the database, it refers to the main database. From here I will be focusing on a single database, but everything applies equally to both.
 
 Within, the ````schema/instance```` directory, create [a schema.xml file](http://www.edugarage.com/display/BBDN/Schema+Definitions). There is a lot of stuff that isn't this documentation (as of 19th October 2014), including the topic of this post, defining stored procedures. There are a couple of ways of doing this:
 
