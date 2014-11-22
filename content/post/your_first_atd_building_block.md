@@ -4,6 +4,7 @@ draft = false
 title = "Creating Your First Building Block, The All The Ducks Way"
 description = ""
 keywords = ["blackboard", "development", "tutorial", "b2", "atdb2"]
+author = "shane"
 +++
 
 

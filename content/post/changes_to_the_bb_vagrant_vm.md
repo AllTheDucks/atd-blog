@@ -4,6 +4,7 @@ draft = false
 title = "The first things you should do after downloading the Blackboard Vagrant VM"
 description = "Blackboard provides a Vagrant VM for developer, but some settings should be changed to make it more useful."
 keywords = ["blackboard", "vagrant"]
+author = "shane"
 +++
 
 Since Blackboard v9.1 Service Pack 14, the company has provided for download an [Oracle VirtualBox VM](https://www.virtualbox.org/) wrapped up in a nice [Vagrant VM](https://www.vagrantup.com/). This is extremely convenient, but there are a number of changes that I like to make to it immediately after downloading which makes it even more useful. These changes are: 

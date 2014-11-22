@@ -4,6 +4,7 @@ draft = false
 title = "Add the version from bb-manifest to your war"
 description = "If you’re using Gradle to build and package your Building Blocks, it’s remarkably easy to add a version number to the . war file that Gradle creates."
 keywords = ["cool tricks", "blackboard", "gradle"]
+author = "wiley"
 +++
 
 If you’re using Gradle to build and package your Building Blocks, it’s remarkably easy to add a version number to the . war file that Gradle creates.
