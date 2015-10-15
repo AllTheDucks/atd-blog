@@ -76,7 +76,7 @@ public class Gift extends AbstractIdentifiable {
     @RefersTo(User.class)
     private Id userId;
 
-    @Column({"desc"})
+    @Column({"descr"})
     private String description;
 
     @Column({"count"})
