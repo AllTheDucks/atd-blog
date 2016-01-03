@@ -8,7 +8,7 @@ keywords = ["blackboard", "smart view", "api", "groups"]
 
 *By Shane Argo.*
 
-There has been a fair amount of discussion on the bb_opensrc mailing list and other communities lately about creating a Smart View for a group using the Blackboard API. It's actually fairly simple, but there are some non-obvious things you need to do to get it working. This information should prove useful for creating Smart Views with other (non group) criteria as well.
+There has been a fair amount of discussion on the bb-open_src mailing list and other communities lately about creating a Smart View for a group using the Blackboard API. It's actually fairly simple, but there are some non-obvious things you need to do to get it working. This information should prove useful for creating Smart Views with other (non group) criteria as well.
 
 # Smart View == Custom View #
 As is fairly normal for the Blackboard API, the UI has a different name for the same thing. What the Blackboard UI calls a *Grade Center Smart View*, the API calls a *Gradebook Custom View*. 
