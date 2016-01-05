@@ -34,6 +34,8 @@ In this case, `$script` is a ruby variable which holds the contents of our provi
 
 Here's the full contents of the Vagrantfile.  It's configured to use 4096MB of RAM, so if you don't have much memore, you might want to change that.
 
+To use this, just open the Vagrantfile for your October 2014 VM, and replace the contents with what you see below. 
+
 
 ````
 # -*- mode: ruby -*-
