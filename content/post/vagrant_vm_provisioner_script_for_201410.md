@@ -17,7 +17,7 @@ To avoid all the manual work in applying the changes, we can write a shell scrip
 
 The magic statement to add to your Vagrantfile, is `config.vm.provision "shell", inline: $script`.   In context, it will look like. 
 
-````
+````ruby
 Vagrant.configure("2") do |config|
 
   ...
@@ -32,12 +32,12 @@ In this case, `$script` is a ruby variable which holds the contents of our provi
 
 ## The complete Vagrantfile, what you came for in the first place.
 
-Here's the full contents of the Vagrantfile.  It's configured to use 4096MB of RAM, so if you don't have much memore, you might want to change that.
+Here's the full contents of the Vagrantfile.  It's configured to use 4096MB of RAM, so if you don't have much memory, you might want to change that.
 
 To use this, just open the Vagrantfile for your October 2014 VM, and replace the contents with what you see below. 
 
 
-````
+````ruby
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
