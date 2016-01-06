@@ -83,12 +83,12 @@ sudo /usr/local/blackboard/tools/admin/B2Manager.sh -i /usr/local/blackboard/sys
 sudo /usr/local/blackboard/tools/admin/B2Manager.sh -s AVAILABLE bb-starting-block
 
 echo "####################################################"
-echo "Pushing Updates and restarting Blackboard..."
+echo "Restarting Blackboard..."
 echo "####################################################"
 echo " "
 
 
-sudo /usr/local/blackboard/tools/admin/PushConfigUpdates.sh
+sudo /usr/local/blackboard/tools/admin/ServiceController.sh services.restart
 
 
 
