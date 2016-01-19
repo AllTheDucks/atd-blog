@@ -1,6 +1,6 @@
 +++
 date = "2016-01-19T19:50:00+10:00"
-draft = true
+draft = false
 title = "Blackboard Extensions and the Submission Service"
 description = "Stepping through the process for adding the required fields for a Blackboard extension to your bb-manifest file."
 keywords = ["blackboard", "extension", "submission-serivce", "bb-manifest"]
