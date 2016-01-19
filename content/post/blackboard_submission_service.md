@@ -6,6 +6,8 @@ description = "Stepping through the process for adding the required fields for a
 keywords = ["blackboard", "extension", "submission-serivce", "bb-manifest"]
 +++
 
+*By Harry Scells.*
+
 Extensions are one of many available Blackboard APIs which are there to provide useful interfaces to interact with the system. This post will walk through the process for implementing one such extension provided by Blackboard, namely the submission service. The submission service provides event handlers for submittable items (assignments, tests, et.al). For example when a student submits an assignment, one of the handlers in this extension fires. So let's jump into the code!
 
 ## Quick Setup
