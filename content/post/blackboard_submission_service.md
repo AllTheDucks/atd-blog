@@ -63,6 +63,8 @@ In our `bb-manifest.xml` we need something that looks like this:
 
 Remember the `namespace` and `id` values? These are the values used for the `point` for each extension being implemented. You may also note that we are implementing methods for the providers rather than the consumer. In this instance, Blackboard consumes the extension that you provide. It also doesn't seem to matter what you put for the extension `id` or the `namespace` for the extensions.
 
+*Update: We've been informed that while the values you give the `id` and `namespace` attributes does not matter, they MUST be unique. If this combination of the `id` and `namespace` attribute conflicts with another building block then they may get disabled.*
+
 ## A Quick Note on Implementing Methods
 
 For these services, most methods take one or more `Id` parameters. For the majority of them, these parameters have names like `param1`, `var` or simply `id`. It is very a good idea to log or print the types of Blackboard Ids these are once the methods get called and record them in documentation above the method name:
