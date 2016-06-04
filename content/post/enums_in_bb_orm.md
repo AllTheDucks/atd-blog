@@ -8,9 +8,9 @@ keywords = ["blackboard", "orm", "enum", "b2", "beans"]
 
 *By Shane Argo.*
 
-A while back I wrote about [using Blackboard's ORM framework with your own beans]({{< ref "post/blackboard_ORM_framework_part_two.md" >}}). This going to be a really quick post about how you can map database values to Java Enums.
+A while back I wrote about [using Blackboard's ORM framework with your own beans]({{< ref "post/blackboard_ORM_framework_part_two.md" >}}). This is going to be a really quick post about how you can map database values to Java Enums.
 
-This is done using the `@EnumValueMapping` annotation, which is only [mentioned breifly in Blackboard documention](https://en-us.help.blackboard.com/Learn/9.1_2014_04/Administrator/080_Developer_Resources/020_Develop/Developer's_Guides/Date_Management_Developer's_Guide) but is pretty simple to use. Let's start with an example:
+This is done using the `@EnumValueMapping` annotation, which is only [mentioned breifly in Blackboard's documention](https://en-us.help.blackboard.com/Learn/9.1_2014_04/Administrator/080_Developer_Resources/020_Develop/Developer's_Guides/Date_Management_Developer's_Guide) but is pretty simple to use. Let's start with an example:
 
 ```java
 @EnumValueMapping(values={"TOP", "BOTTOM", "LEFT", "RIGHT"})
