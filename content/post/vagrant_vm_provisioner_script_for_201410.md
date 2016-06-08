@@ -52,7 +52,7 @@ echo "alias tailstdout='tail -f /usr/local/blackboard/logs/tomcat/\\\`ls -1 --so
 
 echo "alias restartbb='sudo /usr/local/blackboard/tools/admin/ServiceController.sh services.restart'" >> /home/vagrant/.bashrc
 echo "alias stopbb='sudo /usr/local/blackboard/tools/admin/ServiceController.sh services.stop'" >> /home/vagrant/.bashrc
-echo "alias startbb='sudo /usr/local/blackbaord/tools/admin/ServiceController.sh services.start'" >> /home/vagrant/.bashrc
+echo "alias startbb='sudo /usr/local/blackboard/tools/admin/ServiceController.sh services.start'" >> /home/vagrant/.bashrc
 echo "alias pushbbconfig='sudo /usr/local/blackboard/tools/admin/PushConfigUpdates.sh'" >> /home/vagrant/.bashrc
 
 echo "####################################################"
