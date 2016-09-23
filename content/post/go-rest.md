@@ -12,17 +12,17 @@ During the [DevCon at the Teaching & Learning Conference in Sydney](http://exper
 
 
 ## First things first - getting set up ##
-First of all you'll need to [download and setup the development VM](https://community.blackboard.com/docs/DOC-1104). Be sure to download at least 2016Q2, as REST was unavailable before this. In fact, Blackboard is adding new REST services an improving the existing services in each version (even within the cumulative updates) so it's probably best to get the newest VM available.
+First of all you'll need to [download and setup the development VM](https://community.blackboard.com/docs/DOC-1104). Be sure to download at least 2016Q2, as REST was unavailable before this. In fact, Blackboard is adding new REST services and improving the existing services in each version (even within the cumulative updates) so it's best to get the newest VM available.
 
 Next you'll need to create an account on the [developer.blackboard.com site](https://developer.blackboard.com/). Once you've created an account you'll be invited to register an application. Click the register button and give your application a name and description. On the next screen you'll be presented with an 'Application Key' and 'Secret'. **Be sure to record these somewhere** as this is the one and only time you'll be given them. 
 
-More information about [the Blackboard REST web services](https://community.blackboard.com/docs/DOC-1592) and [the developer portal](https://community.blackboard.com/docs/DOC-1579) are available on the community site.
+More information about [the Blackboard REST web services](https://community.blackboard.com/docs/DOC-1592) and [the developer portal](https://community.blackboard.com/docs/DOC-1579) is available on the community site.
 
 Now that you've registered an application you can create a REST API Integration in Blackboard. From the System Admin tab in Blackboard, click on 'REST API Integrations' and then 'Create Integration'. You'll be asked for the Application ID you wrote down before. You'll also be asked for the Blackboard user you wish to run the Application as.
 
 <center>![Let's just use the administra... No! - Batman slaps Robin](/images/batman-admin-account.jpg)</center>
 
-The Learn REST APIs use [two-legged OAuth 2 with Client Credentials](http://oauthbible.com/#oauth-2-two-legged). Your application will access the REST API on Learn as a the user specified while creating the integration in Blackboard. Please do not use the administrator, instead create a new System Role with the required permissions and then grant that role to a for-purpose user. 
+The Learn REST APIs use [two-legged OAuth 2 with Client Credentials](http://oauthbible.com/#oauth-2-two-legged). Your application will access the REST API on Learn as the user specified while creating the integration in Blackboard. Please do not use the administrator user or role, instead create a new System Role with the required permissions and then grant that role to a for-purpose user. 
 
 
 ## cURL is your friend ##
@@ -54,7 +54,7 @@ When something goes wrong in Blackboard the stdout/stderr log is usually the fir
 ## Get GOing ##
 Alright, now let's look at setting up and using Go. Firstly, [you'll need to download Go](https://golang.org/dl/) for your system and [set it up according to the official documentation](https://golang.org/doc/install).
 
-Now for the world's quickest introduction to Go. It is a C-like language, developed by Google. It is pretty safe because it is garbage collected, bounds checked, statically typed and contains no pointer arithmetic. Go is pseudo object-oriented, meaning basically that you can associate functions with structures, and it is [duck typed](https://en.wikipedia.org/wiki/Duck_typing). You can also use any [existing C library very easily](https://blog.golang.org/c-go-cgo). 
+Now for the world's quickest introduction to Go. It is a C-like language, developed by Google. It is pretty safe (compared to C, C++, etc) because it is garbage collected, bounds checked, statically typed and allows no pointer arithmetic. Go is pseudo object-oriented, meaning basically that you can associate functions with structures, and it is [duck typed](https://en.wikipedia.org/wiki/Duck_typing). You can also use any [existing C library very easily](https://blog.golang.org/c-go-cgo). 
 
 
 ## The net/http package ##
@@ -79,18 +79,18 @@ On the second line, we see an extremely common pattern in Go code. On this line 
 
 Onto the next line. On this line we are `defer`ing a call to `response.Body.Close`. This simply means that, when this block of code exits, no matter how it exits, call `response.Body.Close`. This is a nice mechanism for ensuring your code cleans up after itself.
 
-Finally, we call the `io.Copy` method to copy the contents of the `response.Body` to `os.Stdout`. There are a couple of interesting things going on on this line. `io.Copy` returns two values. The first is the number of bytes written and the second is the error, if there was one. The underscore tells the compiler that we are aware that the number of bytes written is returned by `io.Copy` but we don't need it. This is necessary, as Go has a number of features normally built into the IDE, such as unused variable detection. The only other thing to note about this line of code is that the `=` operator is used instead of `:=`. This is because no new variables have been introduced, we are reusing the `err` variable from above.
+Finally, we call the `io.Copy` method to copy the contents of the `response.Body` to `os.Stdout`. There are a couple of interesting things going on on this line. `io.Copy` returns two values. The first is the number of bytes written and the second is the error, if there was one. The underscore tells the compiler that we are aware that the number of bytes written is returned by `io.Copy` but we don't need it. This is necessary, as Go has a number of language features normally supplied by the IDE, such as unused variable detection. The only other thing to note about this line of code is that the `=` operator is used instead of `:=`. This is because no new variables have been introduced, we are reusing the `err` variable from above.
 
 
 ## The code is on Github ##
-All of the code used in the post is available in a repository on Github. [We've set it up so that each step of the way is in its own branch.](https://github.com/AllTheDucks/bb-rest-go-demo/branches) You are welcome to clone the project and try this for yourself at each step.
+All of the code used in the post is available in a repository on Github. [We've set it up so that each step is in its own branch.](https://github.com/AllTheDucks/bb-rest-go-demo/branches) You are welcome to clone the project and try this for yourself at each step.
 
 
 ## The Oauth2 package ##
 Go comes with an implementation of OAuth2 which makes [accessing the Blackboard REST web services super simple](https://github.com/AllTheDucks/bb-rest-go-demo/blob/1-minimal-ws-client/main.go):
 
 1. Create a 'Client Credentials' configuration (remember from above, this is the auth type used by Bb).
-2. Create a Client to using this configuration.
+2. Create a Client using this configuration.
 3. Issue a request to the REST web service end point (of course, remembering to defer the clean up).
 4. Do what you want with the response (in the example below we copy it to `Stdout`)
 
@@ -167,7 +167,7 @@ go run main.go --serverRoot="http://localhost:9876/" --appKey="---- Application 
 ## Encapsulating Logic in Go ##
 Things are going to start to get pretty messy if we don't start encapsulating some of the logic. Next we'll [make a service struct which requests the data from the OAuth client, decodes it into structs and returns them](https://github.com/AllTheDucks/bb-rest-go-demo/blob/3-print-courses-to-csv/main.go#L71). 
 
-Something that is going to be important here is the difference between names that start with an uppercase letter, and those that start with a lowercase letter. Go uses this a signal for the visibility of the field, struct or function. Those that start with an uppercase letter are publicly visible and those with a lowercase are not.
+Something important here is the difference between names that start with an uppercase letter, and those that start with a lowercase letter. Go uses this a signal for the visibility of the field, struct or function. Those that start with an uppercase letter are exported/publicly visible and those with a lowercase are not.
 
 Let's start with the structs that represent the JSON result.
 
@@ -191,7 +191,7 @@ type Course struct {
 }
 ````
 
-The magic here is the strange stuff inside of the back ticks. These are called tags in Go and they allow you to specify some meta-data about the fields. They are somewhat akin to annotations in Java. Here were are using them specify how to map the field in JSON data.
+The magic here is the strange stuff inside of the back ticks. These are called tags in Go and they allow you to specify some meta-data about the fields. They are somewhat akin to annotations in Java. Here were are using them specify how the JSON library should map the fields in JSON data.
 
 And now to create a service struct and which is responsible for requesting the data and decoding it:
 
@@ -276,7 +276,7 @@ func main() {
 }
 ````
 
-The most interesting thing in this code, is the passing of a function as an argument. Our handler function meets the function interface expected bu the `http.HandleFunc` function and can therefore be passed in directly.
+The most interesting thing in this code is the passing of a function as an argument. Our handler function implements the interface expected by the `http.HandleFunc` function and can therefore be passed in directly.
 
 ## What next? ##
 In the presentation at the conference, we take this project one step further and serve some templated HTML which lists the courses with each being a link to a path that downloads a CSV of the enrolments. In this post, I've [left it as an exercise for the reader to dig around in Github and check out](https://github.com/AllTheDucks/bb-rest-go-demo/tree/5-template-html).
