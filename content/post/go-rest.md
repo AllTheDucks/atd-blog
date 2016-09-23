@@ -1,6 +1,6 @@
 +++
 date = "2016-09-22T18:45:00+10:00"
-draft = true
+draft = false
 title = "Using the Learn REST API from Golang"
 description = ""
 keywords = ["blackboard", "REST", "API", "golang"]
